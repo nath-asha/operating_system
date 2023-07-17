@@ -1,6 +1,6 @@
 #include<stdio.h>
-#include&lt;stdio.h&gt;
-#include&lt;stdlib.h&gt;
+#include<stdio.h>
+#include<stdlib.h>
 int mutex=1,full=0,empty=3,x=0;
 int main()
 {
@@ -9,22 +9,22 @@ void producer();
 void consumer();
 int wait(int);
 int signal(int);
-printf(&quot;\n1.Producer\n2.Consumer\n3.Exit&quot;);
+printf("\n1.Producer\n2.Consumer\n3.Exit");
 while(1)
 {
 printf(&quot;\nEnter your choice:&quot;);
-scanf(&quot;%d&quot;,&amp;n);
+scanf("%d",&n);
 switch(n)
 {
-case 1: if((mutex==1)&amp;&amp;(empty!=0))
+case 1: if((mutex==1)&&empty!=0))
 producer();
 else
-printf(&quot;Buffer is full!!&quot;);
+printf("Buffer is full!!");
 break;
-case 2: if((mutex==1)&amp;&amp;(full!=0))
+case 2: if((mutex==1)&&(full!=0))
 consumer();
 else
-printf(&quot;Buffer is empty!!&quot;);
+printf("Buffer is empty!!");
 break;
 case 3:
 exit(0);
@@ -48,7 +48,7 @@ mutex=wait(mutex);
 full=signal(full);
 empty=wait(empty);
 x++;
-printf(&quot;\nProducer produces the item %d&quot;,x);
+printf("\nProducer produces the item %d",x);
 mutex=signal(mutex);
 }
 void consumer()
@@ -56,7 +56,7 @@ void consumer()
 mutex=wait(mutex);
 full=wait(full);
 empty=signal(empty);
-printf(&quot;\nConsumer consumes item %d&quot;,x);
+printf("\nConsumer consumes item %d",x);
 x--;
 mutex=signal(mutex);
 }
