@@ -15,12 +15,23 @@ int main()
         scanf("%d",&size);
         printf("Enter the head movement direction for high 1 and low 0 \n");
         scanf("%d",&move);
+        if(move==1){
         printf("Sequence of request access:\n");
         for(i=index; i < n; i++)
         {
             printf("%d",RQ[i]);
             TotalHeadMovement = TotalHeadMovement + abs(RQ[i] - initial);
             initial = RQ[i];
+        }
+        TotalHeadMovement = TotalHeadMovement + abs(size - RQ[i-1] - 1);
+        TotalHeadMovement = TotalHeadMovement + abs(size - 1- 0);
+        initial =0;
+        for(i = 0; i < index; i++)
+        {
+            printf("%d",RQ[i]);
+            TotalHeadMovement = TotalHeadMovement + abs(RQ[i] - initial);
+            initial = RQ[i];
+        }
         }
 else {
     printf("Sequence of request access:\n");
