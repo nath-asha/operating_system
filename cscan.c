@@ -2,7 +2,7 @@
 #include<stdlib.h>
 int main()
 {
-    int RQ[100],i,j,n,TotalHeadMovement = 0 ,initial,size,move;
+    int RQ[100],i,j,n,TotalHeadMovement = 0 ,initial,size,move,index;
     printf("Enter the number of Requests \n");
     scanf("%d",&n);
     printf("Enter the Requests sequence \n");
@@ -15,3 +15,21 @@ int main()
         scanf("%d",&size);
         printf("Enter the head movement direction for high 1 and low 0 \n");
         scanf("%d",&move);
+        printf("Sequence of request access:\n");
+        for(i=index; i < n; i++)
+        {
+            printf("%d",RQ[i]);
+            TotalHeadMovement = TotalHeadMovement + abs(RQ[i] - initial);
+            initial = RQ[i];
+        }
+else {
+    printf("Sequence of request access:\n");
+    for(i = index -1 ;i >= 0 ;i++){
+        printf("%d",RQ[i]);
+               TotalHeadMovement = TotalHeadMovement + abs(RQ[i] - initial);
+               initial =RQ[i];
+    }
+}
+printf("\nTotal head movement is %d ",TotalHeadMovement);
+return 0;
+ }
